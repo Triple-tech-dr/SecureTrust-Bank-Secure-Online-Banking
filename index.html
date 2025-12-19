@@ -1167,6 +1167,35 @@
             border: 2px solid #f1b0b7;
         }
         
+        /* Enhanced Security for Transfer Key */
+        .secure-input-container {
+            position: relative;
+        }
+        
+        .secure-input-container input {
+            padding-right: 50px;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+        
+        .secure-input-container .eye-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--medium-gray);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 5px;
+        }
+        
+        .secure-input-container .eye-toggle:hover {
+            color: var(--primary-blue);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 1024px) {
             .debit-card-section {
@@ -1383,35 +1412,35 @@
                         <li class="transaction-item">
                             <div class="transaction-details">
                                 <h4>Direct Deposit - Salary</h4>
-                                <div class="transaction-date"><i class="far fa-calendar"></i> January 5, 2025</div>
+                                <div class="transaction-date"><i class="far fa-calendar"></i> March 15, 2025</div>
                             </div>
                             <div class="transaction-amount positive">+$12,500.00</div>
                         </li>
                         <li class="transaction-item">
                             <div class="transaction-details">
                                 <h4>Online Purchase - Amazon.com</h4>
-                                <div class="transaction-date"><i class="far fa-calendar"></i> January 2, 2025</div>
+                                <div class="transaction-date"><i class="far fa-calendar"></i> March 12, 2025</div>
                             </div>
                             <div class="transaction-amount negative">-$247.85</div>
                         </li>
                         <li class="transaction-item">
                             <div class="transaction-details">
                                 <h4>ATM Withdrawal</h4>
-                                <div class="transaction-date"><i class="far fa-calendar"></i> December 28, 2024</div>
+                                <div class="transaction-date"><i class="far fa-calendar"></i> March 8, 2025</div>
                             </div>
                             <div class="transaction-amount negative">-$300.00</div>
                         </li>
                         <li class="transaction-item">
                             <div class="transaction-details">
                                 <h4>Transfer to Savings Account</h4>
-                                <div class="transaction-date"><i class="far fa-calendar"></i> December 20, 2024</div>
+                                <div class="transaction-date"><i class="far fa-calendar"></i> March 1, 2025</div>
                             </div>
                             <div class="transaction-amount negative">-$1,000.00</div>
                         </li>
                         <li class="transaction-item">
                             <div class="transaction-details">
                                 <h4>Monthly Interest Earned</h4>
-                                <div class="transaction-date"><i class="far fa-calendar"></i> December 15, 2024</div>
+                                <div class="transaction-date"><i class="far fa-calendar"></i> February 28, 2025</div>
                             </div>
                             <div class="transaction-amount positive">+$42.18</div>
                         </li>
@@ -1428,7 +1457,7 @@
                 
                 <div class="transfer-key-info">
                     <h4><i class="fas fa-key"></i> Secure Transfer Key Required</h4>
-                    <p>Your SecureTrust Bank transfer key is a unique 8-character alphanumeric code. This security feature ensures only authorized users can initiate transfers. <strong></strong></p>
+                    <p>Your SecureTrust Bank transfer key is a unique key code. This security feature ensures only authorized users can initiate transfers. <strong>Never share your transfer key with anyone.</strong></p>
                 </div>
                 
                 <div class="transfer-form">
@@ -1438,10 +1467,10 @@
                             <label for="sender-account"><i class="fas fa-university"></i> From Account</label>
                             <select id="sender-account" class="form-control" required>
                                 <option value="">Select Source Account</option>
-                                <option value="john-doe-checking">Shelly Snow - Primary Checking (••••4582) - $400,000.00</option>
-                                <option value="john-doe-savings">Shelly Snow - High-Yield Savings (••••7821) - $15,250.00</option>
-                                <option value="jane-smith-checking">Shelly Snow - Joint Checking (••••2391) - $25,500.00</option>
-                                <option value="securetrust-business">SecureTrust Business Account (••••6678) - $150,000.00</option>
+                                <option value="shelly-checking">Shelly Snow Renee - Primary Checking (••••4582) - $400,000.00</option>
+                                <option value="shelly-savings">Shelly Snow Renee - High-Yield Savings (••••7821) - $15,250.00</option>
+                                <option value="shelly-investment">Shelly Snow Renee - Investment Account (••••2391) - $25,500.00</option>
+                                <option value="shelly-business">Shelly Renee Business Account (••••6678) - $150,000.00</option>
                             </select>
                         </div>
                         
@@ -1510,14 +1539,20 @@
                         </div>
                         
                         <div class="security-note">
-                            <p><strong><i class="fas fa-shield-alt"></i> Security Verification:</strong> For your protection, a SecureTrust Bank transfer key is required to complete external transfers. This key we need to be Purchase.</p>
+                            <p><strong><i class="fas fa-shield-alt"></i> Security Verification:</strong> For your protection, a SecureTrust Bank transfer key is required to complete external transfers. This key Will Need To Be Purchace.</p>
                         </div>
                         
                         <div class="form-group">
-                            <label for="transfer-key"><i class="fas fa-key"></i> SecureTrust Transfer Key</label>
-                            <input type="password" id="transfer-key" name="transfer-key" placeholder="Enter the tranfer key required>
+                            <div class="secure-input-container">
+                                <label for="transfer-key"><i class="fas fa-key"></i> SecureTrust Transfer Key</label>
+                                <input type="password" id="transfer-key" name="transfer-key" placeholder="Enter 8-character security key" required>
+                                <button type="button" class="eye-toggle" id="toggle-key">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
                             <small style="color: var(--medium-gray); display: block; margin-top: 8px;">
-                                <i class="fas fa-info-circle"></i>
+                                <i class="fas fa-info-circle"></i> Must be exactly 8 characters 
+                            </small>
                         </div>
                         
                         <button type="submit" class="btn">
@@ -1551,11 +1586,11 @@
                                     <div class="card-details">
                                         <div class="card-holder">
                                             <div class="card-label">Card Holder</div>
-                                            <div style="font-size: 1.1rem; font-weight: 600;">SHELLY SNOW RENEE</div>
+                                            <div style="font-size: 1.1rem; font-weight: 600;">SHELLY S RENEE</div>
                                         </div>
                                         <div class="card-expiry">
                                             <div class="card-label">Valid Thru</div>
-                                            <div style="font-size: 1.1rem; font-weight: 600;">08/30</div>
+                                            <div style="font-size: 1.1rem; font-weight: 600;">08/25</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1589,7 +1624,7 @@
                         </div>
                         <div class="info-item">
                             <span>Expiration Date</span>
-                            <span style="font-weight: 600;">August 2030</span>
+                            <span style="font-weight: 600;">August 2025</span>
                         </div>
                         <div class="info-item">
                             <span>Card Status</span>
@@ -1646,7 +1681,7 @@
                 <div class="transaction-summary">
                     <div class="summary-row">
                         <span class="summary-label"><i class="fas fa-user-tie"></i> From Account</span>
-                        <span class="summary-value" id="confirm-sender">Shelly Snow</span>
+                        <span class="summary-value" id="confirm-sender">Shelly Snow Renee</span>
                     </div>
                     <div class="summary-row">
                         <span class="summary-label"><i class="fas fa-user-check"></i> To Recipient</span>
@@ -1671,7 +1706,7 @@
                     <div class="summary-row">
                         <span class="summary-label"><i class="fas fa-circle"></i> Status</span>
                         <span class="summary-value" style="color: var(--success-green); font-weight: 700;">
-                            <i class="fas fa-check-circle"></i> Completed • Funds Available within 1/2 Business Days 
+                            <i class="fas fa-check-circle"></i> Completed • Funds Available Immediately
                         </span>
                     </div>
                 </div>
@@ -1827,15 +1862,23 @@
                 const senderNameField = document.getElementById('sender-name');
                 const selectedOption = this.options[this.selectedIndex].text;
                 
-                if (selectedOption.includes('Shelly Snow')) {
-                    senderNameField.value = 'Shelly Snow';
-                } else if (selectedOption.includes('Shelly Snow')) {
-                    senderNameField.value = 'Shelly Snow';
-                } else if (selectedOption.includes('SecureTrust Business')) {
-                    senderNameField.value = 'SecureTrust Business Account';
+                if (selectedOption.includes('Shelly Snow Renee')) {
+                    senderNameField.value = 'Shelly Snow Renee';
+                } else if (selectedOption.includes('Shelly Renee Business')) {
+                    senderNameField.value = 'Shelly Renee Business Account';
                 } else {
                     senderNameField.value = '';
                 }
+            });
+            
+            // Transfer Key Visibility Toggle
+            const toggleKeyBtn = document.getElementById('toggle-key');
+            const transferKeyInput = document.getElementById('transfer-key');
+            
+            toggleKeyBtn.addEventListener('click', function() {
+                const type = transferKeyInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                transferKeyInput.setAttribute('type', type);
+                this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
             });
             
             // Transfer Form
@@ -2047,7 +2090,10 @@
                 transferModal.classList.remove('active');
                 transferForm.reset();
                 // Reset sender name to default
-                document.getElementById('sender-name').value = 'John Doe';
+                document.getElementById('sender-name').value = 'Shelly Snow Renee';
+                // Reset key visibility
+                transferKeyInput.setAttribute('type', 'password');
+                toggleKeyBtn.innerHTML = '<i class="fas fa-eye"></i>';
                 showPage('dashboard-page');
             });
             
@@ -2072,13 +2118,7 @@
             document.getElementById('date').value = formattedDate;
             
             // Auto-fill current user as sender
-            document.getElementById('sender-name').value = 'John Doe';
-            
-            // Add demo transfer keys to input placeholder for user guidance
-            const transferKeyInput = document.getElementById('transfer-key');
-            const demoKeys = ['AB12CD34', '1A2B3C4D', 'X7Y8Z9A1'];
-            const randomKey = demoKeys[Math.floor(Math.random() * demoKeys.length)];
-            transferKeyInput.placeholder = `e.g., ${randomKey}`;
+            document.getElementById('sender-name').value = 'Shelly Snow Renee';
             
             // Initialize with dashboard page
             showPage('dashboard-page');
